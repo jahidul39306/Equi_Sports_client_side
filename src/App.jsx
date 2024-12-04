@@ -6,6 +6,7 @@ function App() {
         Hello world!
       </h1>
       <button className="btn btn-primary">Hello</button>
+      <input type="checkbox" value="synthwave" className="toggle theme-controller" />
     </div>
   )
 }
