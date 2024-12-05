@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import app from "../firebase/firebase.config";
-import { getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 
 const GlobalContext = createContext();
 
@@ -9,9 +9,22 @@ const GlobalContext = createContext();
 const AuthProvider = ({ children }) => {
 
     const auth = getAuth(app);
+    const [user, setUser] = useState(auth.currentUser);
+    const [loading, setLoading] = useState(true);
+
+
+    // create user with email
+    const createUser = (email, password) => {
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
 
     const globalInfo = {
-
+        createUser,
+        user,
+        setUser,
+        loading,
+        setLoading
     }
 
     return (
@@ -19,4 +32,4 @@ const AuthProvider = ({ children }) => {
     );
 };
 
-export default AuthProvider;
+export { AuthProvider, GlobalContext };
