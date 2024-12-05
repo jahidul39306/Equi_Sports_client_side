@@ -64,7 +64,7 @@ const AddEquipmentPage = () => {
 
     return (
         <div className="flex justify-center items-center min-h-screen">
-            <form onSubmit={handleSubmit} className="card-body max-w-3xl grid grid-cols-2 bg-green-100 rounded-xl shadow-lg">
+            <form onSubmit={handleSubmit} className="card-body max-w-3xl grid grid-cols-1 md:grid-cols-2 bg-green-100 rounded-xl shadow-lg">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Image URL (optional)</span>
@@ -94,14 +94,14 @@ const AddEquipmentPage = () => {
                     <label className="label">
                         <span className="label-text">Price</span>
                     </label>
-                    <input name="price" type="number" placeholder="Price" className="input input-bordered" required min='0' />
+                    <input name="price" type="number" placeholder="Price" className="input input-bordered" required min='0' step="0.01"/>
                 </div>
 
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Rating (optional)</span>
                     </label>
-                    <input name="rating" type="number" placeholder="Rating" className="input input-bordered" min='0' max="5" defaultValue='0' />
+                    <input name="rating" type="number" placeholder="Rating" className="input input-bordered" min='0' max="5" defaultValue='0' step="0.01"/>
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -123,7 +123,7 @@ const AddEquipmentPage = () => {
                     <input name="quantity" type="number" placeholder="Available quantity" className="input input-bordered" required min='0' />
                 </div>
 
-                <div className="col-span-2">
+                <div className="md:col-span-2">
                     <label className="label">
                         <span className="label-text">Description</span>
                     </label>
@@ -132,7 +132,7 @@ const AddEquipmentPage = () => {
 
                 {/* error */}
                 {
-                    err && <p className="text-lg text-red-500 p-2 col-span-2">{err}</p>
+                    err && <p className="text-lg text-red-500 p-2 md:col-span-2">{err}</p>
                 }
 
                 <div className="form-control">
@@ -148,7 +148,7 @@ const AddEquipmentPage = () => {
                     <input name="userName" type="text" placeholder="Username" className="input input-bordered" readOnly defaultValue={user.displayName} />
                 </div>
 
-                <div className="form-control mt-6 col-span-2">
+                <div className="form-control mt-6 md:col-span-2">
                     <button className="btn bg-green-500">Add equipment</button>
                 </div>
             </form>
