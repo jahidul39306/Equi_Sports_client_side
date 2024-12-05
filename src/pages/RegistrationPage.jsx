@@ -9,7 +9,7 @@ import { GlobalContext } from "../provider/AuthProvider";
 const RegistrationPage = () => {
     const [showPass, setShowPass] = useState(false);
     const [err, setErr] = useState("");
-    const { createUser, setUser, setLoading, updateUserProfile } = useContext(GlobalContext)
+    const { createUser, setUser, setLoading, updateUserProfile, createUserWithGoogle } = useContext(GlobalContext)
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -62,8 +62,22 @@ const RegistrationPage = () => {
             toast.error(error.message);
             setErr(error.message);
         }
+    }
 
-
+    // google registration
+    const handleGoogleSignIn = async () => {
+        try {
+            const userCredential = await createUserWithGoogle();
+            await setUser(userCredential.user);
+            toast.success('Registration Successfull');
+            setLoading(false);
+            navigate('/');
+        }
+        catch (error) {
+            setLoading(false);
+            toast.error(error.message);
+            setErr(error.message);
+        }
     }
 
     return (
@@ -126,7 +140,7 @@ const RegistrationPage = () => {
                         <p className="text-lg text-center">or Register with:</p>
                         <div className="flex justify-center text-2xl">
                             <div
-                                // onClick={handleGoogleSignIn}
+                                onClick={handleGoogleSignIn}
                                 className="bg-red-600 p-2 rounded-full text-white cursor-pointer">
                                 <FaGoogle />
                             </div>

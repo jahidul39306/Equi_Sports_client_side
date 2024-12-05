@@ -7,7 +7,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 
 const LoginPage = () => {
-    const { loginUser, setUser, setLoading } = useContext(GlobalContext);
+    const { loginUser, setUser, setLoading, loginWithGoogle } = useContext(GlobalContext);
     const navigate = useNavigate();
     const [err, setErr] = useState(false);
     const location = useLocation();
@@ -21,6 +21,24 @@ const LoginPage = () => {
         try {
             const userCredential = await loginUser(email, password);
             await setUser(userCredential.user);
+            toast.success("Successfully logged in");
+            navigate(location?.state ? location.state : '/');
+        }
+        catch (error) {
+            setLoading(false);
+            console.error(error);
+            toast.error("Login failed");
+            setErr(true);
+        }
+    }
+
+
+    // google login
+    const handleGoogleLogIn = async () => {
+        try {
+            const result = await loginWithGoogle();
+            setUser(result.user);
+            setLoading(false);
             toast.success("Successfully logged in");
             navigate(location?.state ? location.state : '/');
         }
@@ -75,7 +93,7 @@ const LoginPage = () => {
                     <p className="text-lg text-center">or Login with:</p>
                     <div className="flex justify-center text-2xl">
                         <div
-                            // onClick={handleGoogleLogIn}
+                            onClick={handleGoogleLogIn}
                             className="bg-red-600 p-2 rounded-full text-white cursor-pointer">
                             <FaGoogle />
                         </div>
