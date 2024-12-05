@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 const GlobalContext = createContext();
 
@@ -30,6 +30,12 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+    // update profile
+    const updateUserProfile = (updatedProfile) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, updatedProfile);
+    }
+
     const globalInfo = {
         createUser,
         user,
@@ -38,6 +44,7 @@ const AuthProvider = ({ children }) => {
         setLoading,
         loginUser,
         userLogOut,
+        updateUserProfile,
         
     }
 

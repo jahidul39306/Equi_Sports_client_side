@@ -50,7 +50,7 @@ const Navbar = () => {
                         :
                         user ? (
                             user.photoURL ?
-                                <div>
+                                <div className="flex gap-5">
                                     <div className="group">
                                         <img src={user.photoURL} className="h-[35px] w-[35px] md:h-[50px] md:w-[50px] rounded-full hover" referrerPolicy="no-referrer"></img>
                                         <p className="z-10 px-2 py-1 absolute text-center bg-black text-white text-sm font-bold hidden group-hover:block">

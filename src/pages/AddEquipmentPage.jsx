@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import { GlobalContext } from "../provider/AuthProvider";
+
 const AddEquipmentPage = () => {
+
+    const {user} = useContext(GlobalContext);
+
+
     return (
         <div className="flex justify-center items-center min-h-screen">
             <form className="card-body max-w-3xl grid grid-cols-2 bg-green-100 rounded-xl shadow-lg">
@@ -65,13 +72,13 @@ const AddEquipmentPage = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="Email" className="input input-bordered" required />
+                    <input type="email" placeholder="Email" className="input input-bordered" readOnly defaultValue={user.email} />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Username</span>
                     </label>
-                    <input type="text" placeholder="Username" className="input input-bordered" required />
+                    <input type="text" placeholder="Username" className="input input-bordered" readOnly defaultValue={user.displayName} />
                 </div>
 
                 <div className="form-control mt-6 col-span-2">

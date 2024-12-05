@@ -9,7 +9,7 @@ import { GlobalContext } from "../provider/AuthProvider";
 const RegistrationPage = () => {
     const [showPass, setShowPass] = useState(false);
     const [err, setErr] = useState("");
-    const { createUser, setUser, setLoading } = useContext(GlobalContext)
+    const { createUser, setUser, setLoading, updateUserProfile } = useContext(GlobalContext)
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -52,8 +52,9 @@ const RegistrationPage = () => {
         try {
             const userCredential = await createUser(email, password);
             await setUser(userCredential.user);
+            await updateUserProfile({ displayName: name, photoURL: photoURL })
             toast.success('Registration Successfull');
-            setLoading(false); 
+            setLoading(false);
             navigate('/');
         }
         catch (error) {
