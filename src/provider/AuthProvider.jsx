@@ -12,6 +12,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(auth.currentUser);
     const [loading, setLoading] = useState(true);
 
+    // server side url
+    const serverURL = 'http://localhost:5000';
+
     // variables for google signin login
     const googleProvider = new GoogleAuthProvider();
 
@@ -59,7 +62,8 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         createUserWithGoogle,
         loginWithGoogle,
-        
+        serverURL,
+
     }
 
     useEffect(() => {
