@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { GlobalContext } from "../provider/AuthProvider";
+import { RxAvatar } from "react-icons/rx";
 
 
 const Navbar = () => {
-
+    const { loading, user } = useContext(GlobalContext);
 
     return (
         <div className="navbar container mx-auto">
@@ -42,8 +45,38 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2 md:gap-5 text-xs md:text-sm">
-                <NavLink to='/login' className={({ isActive }) => (isActive ? "text-green-500 font-bold" : "")}>Login</NavLink>
-                <NavLink to='/registration' className={({ isActive }) => (isActive ? "text-green-500 font-bold" : "")}>Register</NavLink>
+                {
+                    loading ? <span className="loading loading-spinner loading-md"></span>
+                        :
+                        user ? (
+                            user.photoURL ?
+                                <div>
+                                    <div className="group">
+                                        <img src={user.photoURL} className="h-[35px] w-[35px] md:h-[50px] md:w-[50px] rounded-full hover" referrerPolicy="no-referrer"></img>
+                                        <p className="z-10 px-2 py-1 absolute text-center bg-black text-white text-sm font-bold hidden group-hover:block">
+                                            {user.displayName}</p>
+                                        <div className="btn bg-orange-600 text-white text-xs md:text-base p-1 md:p-2">Logout</div>
+                                    </div>
+                                    <div className="btn bg-green-500 text-white text-xs md:text-base p-1 md:p-2">Logout</div>
+                                </div>
+                                :
+                                <div className="flex gap-5">
+                                    <div className="text-5xl group">
+                                        <RxAvatar />
+                                        <p className="z-10 px-2 py-1 absolute text-center bg-black text-white text-sm font-bold hidden group-hover:block">
+                                            {user.displayName}</p>
+                                    </div>
+                                    <div className="btn bg-green-500 text-white text-xs md:text-base p-1 md:p-2">Logout</div>
+                                </div>
+                        )
+                            :
+                            (
+                                <div>
+                                    <NavLink to='/login' className={({ isActive }) => (isActive ? "text-green-500 font-bold" : "")}>Login</NavLink>
+                                    <NavLink to='/registration' className={({ isActive }) => (isActive ? "text-green-500 font-bold" : "")}>Register</NavLink>
+                                </div>
+                            )
+                }
             </div>
         </div>
     );

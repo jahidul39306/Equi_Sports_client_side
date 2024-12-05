@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
@@ -10,6 +10,7 @@ const RegistrationPage = () => {
     const [showPass, setShowPass] = useState(false);
     const [err, setErr] = useState("");
     const { createUser, setUser, setLoading } = useContext(GlobalContext)
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -50,7 +51,10 @@ const RegistrationPage = () => {
 
         try {
             const userCredential = await createUser(email, password);
-            setUser(userCredential.user);
+            await setUser(userCredential.user);
+            toast.success('Registration Successfull');
+            setLoading(false); 
+            navigate('/');
         }
         catch (error) {
             setLoading(false);
