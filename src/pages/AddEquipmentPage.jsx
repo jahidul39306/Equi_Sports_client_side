@@ -11,7 +11,7 @@ const AddEquipmentPage = () => {
         event.preventDefault();
         const form = event.target;
 
-        const imgeUrl = form.imageUrl.value;
+        const imageUrl = form.imageUrl.value;
         const itemName = form.itemName.value;
         const category = form.category.value;
         const price = form.price.value;
@@ -36,7 +36,7 @@ const AddEquipmentPage = () => {
         }
 
         const equipment = {
-            imgeUrl, itemName, category, price, rating, customization, processingTime, quantity, description, userEmail, userName
+            imageUrl, itemName, category, price, rating, customization, processingTime, quantity, description, userEmail, userName
         }
 
         try {
