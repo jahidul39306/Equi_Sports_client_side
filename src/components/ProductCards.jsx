@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 
+import { useNavigate } from "react-router-dom";
+
 const ProductCards = ({ allEquipments }) => {
 
     const defaultImage = 'https://i.ibb.co.com/VYq7sVq/sports-at-school.webp';
+    const navigate = useNavigate();
 
     return (
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
@@ -28,7 +31,7 @@ const ProductCards = ({ allEquipments }) => {
                                     <div className="badge badge-outline">{eqp.category}</div>
                                 </div>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Details</button>
+                                    <button onClick={() => navigate(`details/${eqp._id}`)} className="btn btn-primary">Details</button>
                                 </div>
                             </div>
                         </div>

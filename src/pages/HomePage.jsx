@@ -28,7 +28,7 @@ const HomePage = () => {
     return (
         <div>
             <Slider></Slider>
-            <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-green-500">Some of our products</h1>
+            <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-green-500">Some of our latest products</h1>
             <ProductCards allEquipments={allEquipments.slice(-6)}></ProductCards>
             <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-green-500">Sports categories</h1>
             <CategoriesCard allEquipments={allEquipments}></CategoriesCard>

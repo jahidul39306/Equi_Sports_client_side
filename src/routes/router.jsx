@@ -8,6 +8,7 @@ import MyEquipmentPage from "../pages/MyEquipmentPage";
 import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import PrivateRoute from "./PrivateRoute";
+import DetailsPgae from "../pages/DetailsPgae";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,13 @@ const router = createBrowserRouter([
             {
                 path: "/registration",
                 element: <RegistrationPage></RegistrationPage>
+            },
+            {
+                path: "/details/:id",
+                element: <PrivateRoute>
+                    <DetailsPgae></DetailsPgae>
+                </PrivateRoute>,
+                errorElement: <ErrorPage></ErrorPage>
             },
         ]
     },

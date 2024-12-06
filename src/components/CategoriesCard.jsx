@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CategoriesCard = ({ allEquipments }) => {
     const [selectedCategory, setSelectedCategory] = useState('Football');
     const defaultImage = 'https://i.ibb.co.com/VYq7sVq/sports-at-school.webp';
+    const navigate = useNavigate();
 
     const filteredCategory = (value) => {
         return allEquipments.filter(eqp => eqp.category === value);
@@ -19,7 +21,7 @@ const CategoriesCard = ({ allEquipments }) => {
 
     return (
         <div>
-            <div className="container mx-auto flex justify-evenly">
+            <div className="container mx-auto flex justify-evenly flex-wrap">
                 <button onClick={() => handleCategory('Football')} className={`btn btn-success  ${selectedCategory === 'Football' ? 'bg-green-500' : 'bg-green-200'}`}>Football</button>
                 <button onClick={() => handleCategory('Cricket')} className={`btn btn-success 0 ${selectedCategory === 'Cricket' ? 'bg-green-500' : 'bg-green-200'}`}>Cricket</button>
                 <button onClick={() => handleCategory('Baseball')} className={`btn btn-success  ${selectedCategory === 'Baseball' ? 'bg-green-500' : 'bg-green-200'}`}>Baseball</button>
@@ -49,7 +51,7 @@ const CategoriesCard = ({ allEquipments }) => {
                                         <div className="badge badge-outline">{eqp.category}</div>
                                     </div>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Details</button>
+                                        <button onClick={() => navigate(`details/${eqp._id}`)} className="btn btn-primary">Details</button>
                                     </div>
                                 </div>
                             </div>
