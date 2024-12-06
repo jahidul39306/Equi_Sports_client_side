@@ -1,8 +1,10 @@
+import Lottie from "lottie-react";
+import loading from "../../public/loading.json";
 
 const Loading = () => {
     return (
         <div className="min-h-screen flex items-center justify-center">
-            <span className="loading loading-bars loading-lg text-center"></span>
+            <Lottie animationData={loading} />
         </div>
     );
 };

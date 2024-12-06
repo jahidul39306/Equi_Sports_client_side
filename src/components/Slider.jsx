@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Slide } from "react-awesome-reveal";
 
 const Slider = () => {
     const location = useLocation();

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../provider/AuthProvider";
 import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const AllEquipmentPage = () => {
     const { serverURL } = useContext(GlobalContext);
@@ -61,11 +62,11 @@ const AllEquipmentPage = () => {
                                 return (
                                     <tr key={eq._id}>
                                         <th>{idx + 1}</th>
-                                        <td>{eq.itemName}</td>
-                                        <td>{eq.category}</td>
-                                        <td>{eq.price}</td>
-                                        <td>{eq.quantity}</td>
-                                        <td>{eq.processingTime} day</td>
+                                        <td><Fade>{eq.itemName}</Fade></td>
+                                        <td><Fade>{eq.category}</Fade></td>
+                                        <td><Fade>{eq.price}</Fade></td>
+                                        <td><Fade>{eq.quantity}</Fade></td>
+                                        <td ><Fade>{`${eq.processingTime} day`}</Fade></td>
                                         <td>
                                             <button onClick={() => navigate(`/details/${eq._id}`)} className="btn btn-primary">Details</button>
                                         </td>
