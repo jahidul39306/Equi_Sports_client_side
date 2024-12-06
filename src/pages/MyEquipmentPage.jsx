@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
+import Swal from 'sweetalert2';
+import { toast } from "react-toastify";
 
 const MyEquipmentPage = () => {
     const defaultImage = 'https://i.ibb.co.com/VYq7sVq/sports-at-school.webp';
@@ -16,6 +18,41 @@ const MyEquipmentPage = () => {
         const data = await res.json();
         setShowCards(data.filter(d => d.userEmail === user.email));
         setLoadingEqp(false);
+    }
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    const requestOption = {
+                        method: "DELETE",
+                    }
+                    const response = await fetch(`${serverURL}/delete-equipment/${id}`, requestOption);
+                    if (response.ok) {
+                        setLoadingEqp(true);
+                        toast.success("Equipment deleted successfully");
+                        setShowCards(showCards.filter(c => c._id !== id));
+                        setLoadingEqp(false);
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your equipment has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                }
+                catch (err) {
+                    toast.error(err.message);
+                }
+            }
+        });
     }
 
     useEffect(() => {
@@ -53,7 +90,7 @@ const MyEquipmentPage = () => {
                                     <div className="card-actions justify-between">
                                         <button onClick={() => navigate(`/details/${eqp._id}`)} className="btn btn-primary">Details</button>
                                         <button onClick={() => navigate(`/update-equipment/${eqp._id}`)} className="btn btn-info">Edit</button>
-                                        <button onClick={() => navigate(`/details/${eqp._id}`)} className="btn btn-error">Delete</button>
+                                        <button onClick={() => handleDelete(eqp._id)} className="btn btn-error">Delete</button>
                                     </div>
                                 </div>
                             </div>
