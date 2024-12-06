@@ -51,7 +51,7 @@ const CategoriesCard = ({ allEquipments }) => {
                                         <div className="badge badge-outline">{eqp.category}</div>
                                     </div>
                                     <div className="card-actions justify-end">
-                                        <button onClick={() => navigate(`details/${eqp._id}`)} className="btn btn-primary">Details</button>
+                                        <button onClick={() => navigate(`/details/${eqp._id}`)} className="btn btn-primary">Details</button>
                                     </div>
                                 </div>
                             </div>

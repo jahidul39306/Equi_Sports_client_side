@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../provider/AuthProvider";
 import Loading from "../components/Loading";
+import { useNavigate } from "react-router-dom";
 
 const AllEquipmentPage = () => {
     const { serverURL } = useContext(GlobalContext);
@@ -8,6 +9,7 @@ const AllEquipmentPage = () => {
     const [allEquipments, setAllEquipments] = useState([]);
     const [loadingEqp, setLoadingEqp] = useState(true);
     const [sortByPrice, setSortByPrice] = useState(false);
+    const navigate = useNavigate();
 
     const getAllEquipments = async () => {
         const res = await fetch(`${serverURL}/get-all-equipment`);
@@ -65,7 +67,7 @@ const AllEquipmentPage = () => {
                                         <td>{eq.quantity}</td>
                                         <td>{eq.processingTime} day</td>
                                         <td>
-                                            <button className="btn btn-primary">Details</button>
+                                            <button onClick={() => navigate(`/details/${eq._id}`)} className="btn btn-primary">Details</button>
                                         </td>
                                     </tr>
                                 );

@@ -33,7 +33,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-equipment",
-                element: <MyEquipmentPage></MyEquipmentPage>
+                element: <PrivateRoute>
+                    <MyEquipmentPage></MyEquipmentPage>
+                </PrivateRoute>
             },
             {
                 path: "/login",
