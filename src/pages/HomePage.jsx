@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 import ProductCards from "../components/ProductCards";
 import CategoriesCard from "../components/CategoriesCard";
 import VideoContainer from "../components/VideoContainer";
+import MemberCard from "../components/MemberCard";
 
 const HomePage = () => {
     const { serverURL } = useContext(GlobalContext);
@@ -35,6 +36,8 @@ const HomePage = () => {
             <CategoriesCard allEquipments={allEquipments}></CategoriesCard>
             <h1 className="text-center mt-10 mb-5 md:mt-20 md:mb-10 text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">A small video about us</h1>
             <VideoContainer></VideoContainer>
+            <h1 className="text-center mt-10 mb-5 md:mt-20 md:mb-10 text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">Become a member</h1>
+            <MemberCard></MemberCard>
         </div>
     );
 };
