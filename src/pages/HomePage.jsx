@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import { GlobalContext } from "../provider/AuthProvider";
 import Loading from "../components/Loading";
-import ProductCards from "./ProductCards";
+import ProductCards from "../components/ProductCards";
+import CategoriesCard from "../components/CategoriesCard";
 
 const HomePage = () => {
     const { serverURL } = useContext(GlobalContext);
@@ -28,7 +29,9 @@ const HomePage = () => {
         <div>
             <Slider></Slider>
             <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-green-500">Some of our products</h1>
-            <ProductCards allEquipments={allEquipments.slice(0, 6)}></ProductCards>
+            <ProductCards allEquipments={allEquipments.slice(-6)}></ProductCards>
+            <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-green-500">Sports categories</h1>
+            <CategoriesCard allEquipments={allEquipments}></CategoriesCard>
         </div>
     );
 };
