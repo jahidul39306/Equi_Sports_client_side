@@ -9,6 +9,7 @@ import LoginPage from "../pages/LoginPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import PrivateRoute from "./PrivateRoute";
 import DetailsPgae from "../pages/DetailsPgae";
+import UpdateEquipmentPage from "../pages/UpdateEquipmentPage";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,13 @@ const router = createBrowserRouter([
                 path: "/details/:id",
                 element: <PrivateRoute>
                     <DetailsPgae></DetailsPgae>
+                </PrivateRoute>,
+                errorElement: <ErrorPage></ErrorPage>
+            },
+            {
+                path: "/update-equipment/:id",
+                element: <PrivateRoute>
+                    <UpdateEquipmentPage></UpdateEquipmentPage>
                 </PrivateRoute>,
                 errorElement: <ErrorPage></ErrorPage>
             },

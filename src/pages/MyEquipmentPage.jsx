@@ -52,7 +52,7 @@ const MyEquipmentPage = () => {
                                     </div>
                                     <div className="card-actions justify-between">
                                         <button onClick={() => navigate(`/details/${eqp._id}`)} className="btn btn-primary">Details</button>
-                                        <button onClick={() => navigate(`/details/${eqp._id}`)} className="btn btn-info">Edit</button>
+                                        <button onClick={() => navigate(`/update-equipment/${eqp._id}`)} className="btn btn-info">Edit</button>
                                         <button onClick={() => navigate(`/details/${eqp._id}`)} className="btn btn-error">Delete</button>
                                     </div>
                                 </div>
