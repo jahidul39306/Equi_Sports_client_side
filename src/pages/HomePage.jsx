@@ -4,6 +4,7 @@ import { GlobalContext } from "../provider/AuthProvider";
 import Loading from "../components/Loading";
 import ProductCards from "../components/ProductCards";
 import CategoriesCard from "../components/CategoriesCard";
+import VideoContainer from "../components/VideoContainer";
 
 const HomePage = () => {
     const { serverURL } = useContext(GlobalContext);
@@ -28,10 +29,12 @@ const HomePage = () => {
     return (
         <div>
             <Slider></Slider>
-            <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-green-500">Some of our latest products</h1>
+            <h1 className="text-center mt-10 mb-5 md:mt-20 md:mb-10 text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">Some of our latest products</h1>
             <ProductCards allEquipments={allEquipments.slice(-6)}></ProductCards>
-            <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-green-500">Sports categories</h1>
+            <h1 className="text-center mt-10 mb-5 md:mt-20 md:mb-10 text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">Sports categories</h1>
             <CategoriesCard allEquipments={allEquipments}></CategoriesCard>
+            <h1 className="text-center mt-10 mb-5 md:mt-20 md:mb-10 text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">A small video about us</h1>
+            <VideoContainer></VideoContainer>
         </div>
     );
 };
