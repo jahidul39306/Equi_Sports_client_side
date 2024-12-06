@@ -11,7 +11,7 @@ const MainLayout = () => {
             <main className="min-h-screen">
                 <Outlet></Outlet>
             </main>
-            <footer className="">
+            <footer className="bg-green-300 mt-20">
                 <Footer></Footer>
             </footer>
         </div>
