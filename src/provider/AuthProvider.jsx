@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     // server side url
-    const serverURL = 'http://localhost:5000';
+    const serverURL = 'https://server-side-equi-sports.vercel.app';
 
     // variables for google signin login
     const googleProvider = new GoogleAuthProvider();
