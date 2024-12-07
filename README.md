@@ -1,8 +1,27 @@
-# React + Vite
+# EquiSports
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link of the website: https://equisports-9cba6.web.app/
+### Tools used
+#### Front-end:
+- Vite
+- React
+- Tailwind CSS
+- DaisyUI
+- React Router Dom
 
-Currently, two official plugins are available:
+#### Back-end:
+- Node
+- MongoDB
+- Express
+- Firebase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Key features
+- Responsive, that means this website can be viewed in phone, tablet and large screen.
+- Login and registration of user can happpen with email and password.
+- For the authentication firebase has been used.
+- Google window popup login registration
+- User can do `add` `update` `get` `delete` operations. Meaning full CRUD application.
+- As backend Express js has been used. 
+- For the database MongoDB has been used.
+- Built the website to handle some common errors.
+- Website has theme controller.
