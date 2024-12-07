@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { GlobalContext } from "../provider/AuthProvider";
 import { RxAvatar } from "react-icons/rx";
+import ThemeController from "./ThemeController";
 
 
 const Navbar = () => {
@@ -76,6 +77,7 @@ const Navbar = () => {
                                 </div>
                             )
                 }
+                <ThemeController></ThemeController>
             </div>
         </div>
     );

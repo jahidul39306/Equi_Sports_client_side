@@ -12,6 +12,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(auth.currentUser);
     const [loading, setLoading] = useState(true);
 
+    // theme controller
+    const [theme, setTheme] = useState('light');
+
     // server side url
     const serverURL = 'https://server-side-equi-sports.vercel.app';
 
@@ -63,7 +66,8 @@ const AuthProvider = ({ children }) => {
         createUserWithGoogle,
         loginWithGoogle,
         serverURL,
-
+        theme,
+        setTheme
     }
 
     useEffect(() => {
