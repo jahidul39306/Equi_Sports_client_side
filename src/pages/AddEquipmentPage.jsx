@@ -67,20 +67,20 @@ const AddEquipmentPage = () => {
             <form onSubmit={handleSubmit} className="card-body max-w-3xl grid grid-cols-1 md:grid-cols-2 bg-green-100 rounded-xl shadow-lg">
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Image URL (optional)</span>
+                        <span className="label-text text-black">Image URL (optional)</span>
                     </label>
                     <input name="imageUrl" type="text" placeholder="Image URL" className="input input-bordered" />
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Item name</span>
+                        <span className="label-text text-black">Item name</span>
                     </label>
                     <input name="itemName" type="text" placeholder="Item name" className="input input-bordered" required />
                 </div>
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Category</span>
+                        <span className="label-text text-black">Category</span>
                     </label>
                     <select name="category" className="select select-info w-full border-none">
                         <option value='None'>Select category</option>
@@ -92,40 +92,40 @@ const AddEquipmentPage = () => {
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Price</span>
+                        <span className="label-text text-black">Price</span>
                     </label>
                     <input name="price" type="number" placeholder="Price" className="input input-bordered" required min='0' step="0.01"/>
                 </div>
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Rating (optional)</span>
+                        <span className="label-text text-black">Rating (optional)</span>
                     </label>
                     <input name="rating" type="number" placeholder="Rating" className="input input-bordered" min='0' max="5" defaultValue='0' step="0.01"/>
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Customization (optional)</span>
+                        <span className="label-text text-black">Customization (optional)</span>
                     </label>
                     <input name="customization" type="text" placeholder="Customization" className="input input-bordered" />
                 </div>
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Processing time (in days)</span>
+                        <span className="label-text text-black">Processing time (in days)</span>
                     </label>
                     <input name="processingTime" type="number" placeholder="Processing time" className="input input-bordered" required min='0' />
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Available quantity</span>
+                        <span className="label-text text-black">Available quantity</span>
                     </label>
                     <input name="quantity" type="number" placeholder="Available quantity" className="input input-bordered" required min='0' />
                 </div>
 
                 <div className="md:col-span-2">
                     <label className="label">
-                        <span className="label-text">Description</span>
+                        <span className="label-text text-black">Description</span>
                     </label>
                     <textarea name="description" className="textarea textarea-primary w-full resize-none textarea-lg" placeholder="Description"></textarea>
                 </div>
@@ -137,19 +137,19 @@ const AddEquipmentPage = () => {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-black">Email</span>
                     </label>
                     <input name="userEmail" type="email" placeholder="Email" className="input input-bordered" readOnly defaultValue={user.email} />
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Username</span>
+                        <span className="label-text text-black">Username</span>
                     </label>
                     <input name="userName" type="text" placeholder="Username" className="input input-bordered" readOnly defaultValue={user.displayName} />
                 </div>
 
                 <div className="form-control mt-6 md:col-span-2">
-                    <button className="btn bg-green-500">Add equipment</button>
+                    <button className="btn bg-green-500 text-black">Add equipment</button>
                 </div>
             </form>
         </div>

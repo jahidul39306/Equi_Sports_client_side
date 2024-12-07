@@ -56,7 +56,7 @@ const LoginPage = () => {
                 {/* email */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-black">Email</span>
                     </label>
                     <input name="email" type="email" placeholder="email" className="input input-bordered" />
                 </div>
@@ -64,7 +64,7 @@ const LoginPage = () => {
                 {/* password */}
                 <div className="form-control relative">
                     <label className="label">
-                        <span className="label-text">Password</span>
+                        <span className="label-text text-black">Password</span>
                     </label>
                     <input name="password" type={showPass ? "text" : "password"} placeholder="password" className="input input-bordered" />
                     <div
@@ -83,14 +83,14 @@ const LoginPage = () => {
                 }
                 {/* document.getElementsByName('email')[0].value */}
                 <div className="mt-3 flex justify-between text-sm md:text-base">
-                    <Link to='/registration' className="link link-hover">New user? Register</Link>
+                    <Link to='/registration' className="link link-hover text-black">New user? Register</Link>
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Login</button>
                 </div>
                 <div className="space-y-5 mt-5">
                     <hr />
-                    <p className="text-lg text-center">or Login with:</p>
+                    <p className="text-lg text-center text-black">or Login with:</p>
                     <div className="flex justify-center text-2xl">
                         <div
                             onClick={handleGoogleLogIn}

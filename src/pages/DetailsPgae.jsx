@@ -35,7 +35,7 @@ const DetailsPgae = () => {
 
     return (
         <Slide>
-            <div className="max-w-6xl mx-auto mt-20">
+            <div className="max-w-6xl mx-auto mt-20 text-black">
                 <div className="flex flex-col md:flex-row justify-between items-center shadow-lg rounded-lg p-4 gap-5 md:gap-10 bg-pink-200">
                     <div className="flex-grow">
                         <img

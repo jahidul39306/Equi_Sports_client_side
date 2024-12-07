@@ -5,7 +5,7 @@ import { Slide } from "react-awesome-reveal";
 const MemberCard = () => {
     return (
         <Slide>
-            <div className="flex flex-col md:flex-row justify-evenly gap-5">
+            <div className="flex flex-col md:flex-row justify-evenly gap-5 text-black">
                 <div className="bg-pink-300 text-left rounded-lg p-5 md:p-10 font-bold flex flex-col gap-2 md:gap-5 text-base md:text-lg shadow-xl">
                     <p className="text-center text-xl md:text-3xl">Premium member</p>
                     <h1 className="text-2xl md:text-5xl text-center">$5/month</h1>
