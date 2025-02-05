@@ -76,7 +76,12 @@ npm install
 Create a `.env` file in the root directory and add your Firebase API key.
 
 ```env
-VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_apiKey=YOUR_API_KEY
+VITE_authDomain=YOUR_AUTH_DOMAIN
+VITE_projectId=YOUR_PROJECT_ID
+VITE_storageBucket=YOUR_STORAGE_BUCKET
+VITE_messagingSenderId=YOUR_MESSAGING_SENDER_ID
+VITE_appId=YOUR_APP_ID
 ```
 
 ### **4️⃣ Run the Development Server**
